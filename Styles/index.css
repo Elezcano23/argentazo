@@ -1,0 +1,75 @@
+:root {
+    color-scheme: dark;
+    font-family: Arial, Helvetica, sans-serif;
+    --background: #021923;
+    --surface: #063c50;
+    --image-background: #021e2b;
+    --border: #1b5365;
+    --sky: #43c6e8;
+    --gold: #f4c84c;
+    --text: #f1fbff;
+    --muted: #b7d8e4;
+    color: var(--text);
+    background: var(--background);
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+.site-header { border-bottom: 1px solid var(--border); background: var(--image-background); }
+.brand { display: flex; align-items: center; gap: 20px; max-width: 1120px; margin: auto; padding: 16px 48px; }
+.brand img, .footer-brand img { object-fit: contain; }
+.brand img { width: 64px; height: 64px; }
+.brand span { font-size: 28px; font-weight: 800; text-transform: uppercase; }
+.site-main { max-width: 1120px; margin: auto; padding: 32px 48px 60px; }
+h1, h2, h3 { margin: 0; font-weight: 800; }
+h1, h2 { text-transform: uppercase; }
+h1 { font-size: 28px; line-height: 1.2; margin-bottom: 32px; }
+h2 { color: var(--sky); font-size: 22px; line-height: 1.25; margin-bottom: 18px; }
+.game-section + .game-section { margin-top: 40px; }
+.game-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.game-card { display: flex; flex-direction: column; min-width: 0; overflow: hidden; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); box-shadow: 0 6px 20px #00000026; }
+a.game-card { transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease; }
+a.game-card:hover { border-color: var(--sky); box-shadow: 0 8px 24px #00000040; transform: translateY(-3px); }
+.card-image, .card-placeholder { display: block; width: 100%; aspect-ratio: 1 / 1; background: var(--image-background); }
+.card-image { object-fit: contain; padding: 12px; }
+.card-placeholder { display: grid; place-items: center; color: var(--gold); font-size: 13px; text-transform: uppercase; letter-spacing: .08em; background: radial-gradient(ellipse at center, #074358, var(--image-background) 75%); }
+.card-content { flex: 1; padding: 18px 14px 20px; text-align: center; border-top: 1px solid var(--border); }
+h3 { font-size: 22px; line-height: 1.2; }
+.card-content p { margin: 9px 0 0; color: var(--muted); font-size: 15px; line-height: 1.4; }
+.site-footer { border-top: 1px solid var(--border); background: var(--image-background); }
+.footer-inner { max-width: 1120px; margin: auto; padding: 32px 48px 26px; }
+.footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; padding-bottom: 28px; }
+.footer-brand img { width: 72px; height: 72px; }
+.footer-info { display: flex; gap: 36px; font-size: 12px; color: var(--muted); }
+.footer-info details { max-width: 180px; }
+.footer-info summary { cursor: pointer; }
+.footer-info p { line-height: 1.5; }
+.copyright { margin: 0; padding-top: 24px; border-top: 1px solid var(--border); font-size: 10px; color: var(--muted); text-transform: uppercase; }
+@media (max-width: 900px) {
+    .brand, .site-main, .footer-inner { padding-left: 24px; padding-right: 24px; }
+    .game-grid { gap: 14px; }
+    h3 { font-size: 19px; }
+}
+@media (max-width: 600px) {
+    .brand { justify-content: space-between; gap: 16px; padding: 10px 16px; }
+    .brand img { width: 48px; height: 48px; }
+    .brand span { font-size: 21px; }
+    .site-main { padding: 24px 16px 36px; }
+    h1 { margin-bottom: 28px; font-size: 27px; }
+    h2 { font-size: 20px; margin-bottom: 16px; }
+    .game-section + .game-section { margin-top: 32px; }
+    .game-grid { grid-template-columns: minmax(0, 1fr); gap: 18px; max-width: 380px; margin-inline: auto; }
+    .card-image, .card-placeholder { aspect-ratio: 6 / 5; }
+    .card-content { padding: 18px 14px; }
+    h3 { font-size: 23px; }
+    .footer-inner { padding: 20px 16px; text-align: center; }
+    .footer-top { display: block; padding: 0; }
+    .footer-brand img { width: 56px; height: 56px; }
+    .footer-info { justify-content: center; flex-wrap: wrap; gap: 16px; margin-top: 16px; }
+    .copyright { margin-top: 20px; padding-top: 16px; font-size: 9px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    a.game-card { transition: none; }
+    a.game-card:hover { transform: none; }
+}
